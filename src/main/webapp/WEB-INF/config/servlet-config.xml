@@ -6,7 +6,8 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<mvc:annotation-driven />
+  <!-- Enables the Spring MVC @Controller programming model -->
+    <mvc:annotation-driven  />
 
 	<!-- Setta quale filename cercare, quello base , senza la codifica della 
 		nazione -->
@@ -27,8 +28,9 @@
 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"
 		p:defaultLocale="en" />
 
-
-	<mvc:resources mapping="/pdfs/**" location="/WEB-INF/resources/pdfs/"></mvc:resources>
+ <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+   <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+<!-- 	<mvc:resources mapping="/pdfs/**" location="/WEB-INF/resources/pdfs/" /> -->
 
 	<context:component-scan base-package="com.giobertox.controller"></context:component-scan>
 

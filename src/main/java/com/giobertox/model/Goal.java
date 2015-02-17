@@ -1,8 +1,11 @@
 package com.giobertox.model;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Range;
 
 public class Goal {
+	@NotNull
 	@Range(min = 1, max = 180)
 	private int minutes;
 

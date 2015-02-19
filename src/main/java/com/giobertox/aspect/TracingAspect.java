@@ -1,7 +1,6 @@
 package com.giobertox.aspect;
 
 import org.apache.log4j.Logger;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -27,10 +26,12 @@ public class TracingAspect {
 	private void anyPublicOperation() {
 	}
 
-	@Before("execution(* *(..)")
-	public void logEntering(JoinPoint joinPoint) {
+	// --------------- Pointcuts ----------------------
+	@Before("execution(* *(..))")
+	public void logEntering() {
 		enteringCalled = true;
-		logger.trace("entering " + joinPoint.getStaticPart().getSignature().toString());
+		logger.trace("entering ");// +
+		// joinPoint.getStaticPart().getSignature().toString());
 	}
 
 	public boolean isEnteringCalled() {

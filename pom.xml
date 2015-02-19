@@ -9,16 +9,16 @@
 	<url>http://maven.apache.org</url>
 
 	<profiles>
-	<profile>
-	<id>default</id>
-	<properties>
-	<env>default</env>
-	<spring.version>4.1.4.RELEASE</spring.version>
-	</properties>
-	<activation>
-	<activeByDefault>true</activeByDefault>
-	</activation>
-	</profile>
+		<profile>
+			<id>default</id>
+			<properties>
+				<env>default</env>
+				<spring.version>4.1.4.RELEASE</spring.version>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
 	</profiles>
 
 
@@ -62,8 +62,8 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.5.1</version>
 		</dependency>
-		
-<!-- Spring AOP + AspectJ   for transaction and security -->
+
+		<!-- Spring AOP + AspectJ for transaction and security -->
 
 		<dependency>
 			<groupId>org.aspectj</groupId>

@@ -4,19 +4,19 @@ public class Activity {
 
 	private final long id;
 
-	private final String description;
+	private final String name;
 
-	public Activity(long id, String description) {
+	public Activity(long id, String name) {
 		this.id = id;
-		this.description = description;
+		this.name = name;
 	}
 
 	public long getId() {
 		return id;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getName() {
+		return name;
 	}
 
 }

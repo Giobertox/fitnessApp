@@ -4,10 +4,8 @@ import org.apache.log4j.Logger;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
 public class TracingAspect {
 
 	Logger logger = Logger.getLogger(this.getClass());
@@ -27,11 +25,12 @@ public class TracingAspect {
 	}
 
 	// --------------- Pointcuts ----------------------
-	@Before("execution(* *(..))")
+	@Before("execution(public * *(..)")
+	// ("execution( public List<Activity> findAllActivities())")
 	public void logEntering() {
-		enteringCalled = true;
+		// enteringCalled = true;
 		logger.trace("entering ");// +
-		// joinPoint.getStaticPart().getSignature().toString());
+		// // joinPoint.getStaticPart().getSignature().toString());
 	}
 
 	public boolean isEnteringCalled() {

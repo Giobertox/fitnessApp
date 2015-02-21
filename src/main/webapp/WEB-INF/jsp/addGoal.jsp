@@ -29,7 +29,7 @@
 	</h1>
 
 
-	Language :
+	<spring:message code="minutes.language" />:
 	<a href="?language=en">English</a> |
 	<a href="?language=it">Italian</a>
 
@@ -37,7 +37,7 @@
 		<form:errors path="*" cssClass="errorBlock" element="div" />
 		<table>
 			<tr>
-				<td>Enter minutes</td>
+				<td><spring:message code="goal.insertMinutes" /></td>
 				<td><form:input path="minutes" /></td>
 				<td><form:errors path="minutes" cssClass="error" /></td>
 			</tr>

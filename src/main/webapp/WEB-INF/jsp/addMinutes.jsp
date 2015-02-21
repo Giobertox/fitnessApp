@@ -11,28 +11,49 @@
 
 <script type="text/javascript" src="jquery-2.1.3.js"></script>
 <script type="text/javascript">
-	$(document).ready(
-		function() {
-			$.getJSON('<spring:url value="http://localhost:8080/fitnessApp/rest/activities/"/>', {
-				ajax : 'true'
-			}, function(data){
-				var html = '<option value="">--Please select one--</option>';
-				var len = data.length;
-				for (var i = 0; i < len; i++) {
-					html += '<option value="' + data[i].description + '">'
-							+ data[i].description + '</option>';
-				}
-				html += '</option>';
-				
-				$('#type').html(html);
-			});
-			
-		});
-	
+	$(document)
+			.ready(
+					function() {
+						$
+								.getJSON(
+										'<spring:url value="http://localhost:8080/fitnessApp/rest/activities/"/>',
+										{
+											ajax : 'true'
+										},
+										function(data) {
+											var html = '<option value="">--Please select one--</option>';
+											var len = data.length;
+											for (var i = 0; i < len; i++) {
+												html += '<option value="' + data[i].name + '">'
+														+ data[i].name
+														+ '</option>';
+											}
+											html += '</option>';
+
+											$('#type').html(html);
+										});
+
+					});
 </script>
+
+<style>
+.error {
+	color: #ff0000;
+}
+
+.errorBlock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+</style>
 </head>
 <body>
-	<h1>Track your progress</h1>
+	<h1>
+		<spring:message code="minutes.track" />
+	</h1>
 
 
 	<spring:message code="minutes.language" />
@@ -44,18 +65,25 @@
 			<tr>
 				<td><spring:message code="minutes.text" /></td>
 				<td><form:input path="minutes" /></td>
-				<td><form:select id="type" path="type"></form:select></td>
+				<td><form:errors path="minutes" cssClass="error" /></td>
 			</tr>
 			<tr>
-				<td colspan="3"><input type="submit" value="Add" /></td>
+				<td><form:select id="type" path="type"></form:select></td>
+				<td><form:errors path="type" cssClass="error" /></td>
+			</tr>
+			<tr>
+				<spring:message code="minutes.add" var="addVar" />
+				<td colspan="2"><input type="submit" value=${addVar} /></td>
 			</tr>
 		</table>
 	</form:form>
 
-	<br>Still to go: ${goal.minutes} minutes.
+	<br>
+	<spring:message code="minutes.toGo" />	: ${goal.minutes}<spring:message code="minutes.minutes" />.
 
 
-	<br>Enough for today, let's set my
+	<br>
+	<spring:message code="minutes.nextTask" />
 	<a href="/fitnessApp/addGoal.html">next task.</a>
 
 

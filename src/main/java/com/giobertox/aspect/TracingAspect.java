@@ -5,28 +5,32 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
 public class TracingAspect {
 
 	Logger logger = Logger.getLogger(this.getClass());
 
 	boolean enteringCalled = false;
 
-	@Pointcut("execution(* * *(..)")
+	// --------------- Pointcuts ----------------------
+
+	@Pointcut("execution( * *(..))")
 	private void anyOperation() {
 	}
 
-	@Pointcut("execution(public * *(..)")
-	private void anyPublicOperation() {
+	@Pointcut("execution( String updateGoal(..))")
+	private void anyUpdateGoal() {
 	}
 
-	@Before("execution(* *(..)")
+	// --------------- Advice ----------------------
+	@Before("anyUpdateGoal()")
+	// ("execution( public List<Activity> findAllActivities())")
 	public void logEntering(JoinPoint joinPoint) {
-		enteringCalled = true;
-		logger.trace("entering " + joinPoint.getStaticPart().getSignature().toString());
+		// enteringCalled = true;
+		System.out.println("CIAOOO");
+		logger.trace("entering ");// +
+		// // joinPoint.getStaticPart().getSignature().toString());
 	}
 
 	public boolean isEnteringCalled() {

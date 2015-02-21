@@ -24,8 +24,8 @@
 											var html = '<option value="">--Please select one--</option>';
 											var len = data.length;
 											for (var i = 0; i < len; i++) {
-												html += '<option value="' + data[i].name + '">'
-														+ data[i].name
+												html += '<option value="' + data[i].description + '">'
+														+ data[i].description
 														+ '</option>';
 											}
 											html += '</option>';
@@ -68,18 +68,18 @@
 				<td><form:errors path="minutes" cssClass="error" /></td>
 			</tr>
 			<tr>
-				<td><form:select id="type" path="type"></form:select></td>
+				<td colspan="2"><form:select id="type" path="type"></form:select></td>
 				<td><form:errors path="type" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<spring:message code="minutes.add" var="addVar" />
-				<td colspan="2"><input type="submit" value=${addVar} /></td>
+				<td colspan="2"><input type="submit" value="${addVar}" /></td>
 			</tr>
 		</table>
 	</form:form>
 
 	<br>
-	<spring:message code="minutes.toGo" />	: ${goal.minutes}<spring:message code="minutes.minutes" />.
+	<spring:message code="minutes.toGo" />	: ${goal.minutes} <spring:message code="minutes.minutes" />.
 
 
 	<br>

@@ -15,10 +15,6 @@ public class TracingAspect {
 
 	boolean enteringCalled = false;
 
-	@Pointcut("execution(public void methodName(javax.portlet.PortletRequest.PortletRequest)")
-	private void verySpecificMethods() {
-	}
-
 	@Pointcut("execution(* * *(..)")
 	private void anyOperation() {
 	}

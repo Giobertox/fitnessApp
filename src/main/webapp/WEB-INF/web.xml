@@ -24,11 +24,11 @@
 
 	<!-- ************************Servlet Mappings********************** -->
 
-		<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>fitTrackerServlet</servlet-name>
-		<url-pattern>/rest/activities/</url-pattern>
+		<url-pattern>/activities/</url-pattern>
 	</servlet-mapping>
-	
+
 
 	<servlet-mapping>
 		<servlet-name>fitTrackerServlet</servlet-name>
@@ -38,6 +38,11 @@
 	<servlet-mapping>
 		<servlet-name>fitTrackerServlet</servlet-name>
 		<url-pattern>*.pdf</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>fitTrackerServlet</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
 	</servlet-mapping>
 
 	<display-name>Archetype Created Web Application</display-name>

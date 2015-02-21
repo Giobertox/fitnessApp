@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib  prefix="form" uri="http://www.springframework.org/tags/form"   %>
+<%@taglib  prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,7 +16,7 @@
 					function() {
 						$
 								.getJSON(
-										'<spring:url value="http://localhost:8080/fitnessApp/rest/activities/"/>',
+										'<spring:url value="http://localhost:8080/fitnessApp/activities/"/>',
 										{
 											ajax : 'true'
 										},
@@ -29,10 +29,8 @@
 														+ '</option>';
 											}
 											html += '</option>';
-
 											$('#type').html(html);
 										});
-
 					});
 </script>
 
@@ -55,7 +53,6 @@
 		<spring:message code="minutes.track" />
 	</h1>
 
-
 	<spring:message code="minutes.language" />
 	<a href="?language=en">English</a> |
 	<a href="?language=it">Italian</a>
@@ -68,6 +65,7 @@
 				<td><form:errors path="minutes" cssClass="error" /></td>
 			</tr>
 			<tr>
+							<td><spring:message code="minutes.selectActivity" /></td>
 				<td colspan="2"><form:select id="type" path="type"></form:select></td>
 				<td><form:errors path="type" cssClass="error" /></td>
 			</tr>
@@ -79,15 +77,13 @@
 	</form:form>
 
 	<br>
-	<spring:message code="minutes.toGo" />	: ${goal.minutes} <spring:message code="minutes.minutes" />.
-
-
+	<spring:message code="minutes.toGo" />
+	: ${goal.minutes}
+	<spring:message code="minutes.minutes" />
+	.
 	<br>
 	<spring:message code="minutes.nextTask" />
 	<a href="/fitnessApp/addGoal.html">next task.</a>
-
-
-
 
 
 </body>

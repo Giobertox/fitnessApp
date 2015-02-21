@@ -13,12 +13,11 @@
 	<context:component-scan base-package="com.giobertox"></context:component-scan>
 
 	<!-- Enable AspectJ style of Spring AOP -->
-	<bean id="myAspect1" class="com.giobertox.aspect.TracingAspect" />
+	<bean id="myAspectOrientedBean" class="com.giobertox.aspect.TracingAspect" />
 
 	<aop:aspectj-autoproxy proxy-target-class="true">
-		<aop:include name="myAspect1" />
+		<aop:include name="myAspectOrientedBean" />
 	</aop:aspectj-autoproxy>
-
 
 	<!-- Setta quale filename cercare, quello base , senza la codifica della nazione -->
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basenames="messages" />
@@ -34,14 +33,13 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources 
 		directory -->
-	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+	<!-- <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" /> -->
 	<!--enable this in case it would become more specific , more type of files each one with its own folder ) -->
-	<!-- <mvc:resources mapping="/pdfs/**" location="/WEB-INF/resources/pdfs/" /> -->
-
+	<mvc:resources mapping="/pdfs/**" location="/WEB-INF/resources/pdfs/" />
+	<mvc:resources mapping="/images/**" location="/WEB-INF/resources/images/" />
 
 
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0"></bean>
-
 
 	<!-- Apparently the internalresourceViewResolver has to be the last in the list ,maybe bug -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

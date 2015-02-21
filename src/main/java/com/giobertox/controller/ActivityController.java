@@ -11,19 +11,15 @@ import com.giobertox.model.Activity;
 import com.giobertox.service.ActivityService;
 
 @RestController
-@RequestMapping("/rest/activities/")
+@RequestMapping("/activities/")
 public class ActivityController {
 
 	@Autowired
 	ActivityService activityService;
 
 	@RequestMapping(method = RequestMethod.GET, headers = "Accept=application/json")
-	// (value = "/rest/activities/")
-	// public List<Activity> findAllActivities(@RequestParam(value="name",
-	// defaultValue="World") String name)
 	public List<Activity> findAllActivities() {
 		List<Activity> activities = activityService.findAllActivities();
-
 		return activities;
 	}
 

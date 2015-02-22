@@ -39,11 +39,22 @@
 		<servlet-name>fitTrackerServlet</servlet-name>
 		<url-pattern>*.pdf</url-pattern>
 	</servlet-mapping>
-	
-		<servlet-mapping>
+
+	<servlet-mapping>
 		<servlet-name>fitTrackerServlet</servlet-name>
 		<url-pattern>*.jpg</url-pattern>
 	</servlet-mapping>
+	<!-- ************************Listener class for JPA ********************** -->
 
+<!-- We are going to load this file in place of the standard persistence.xml -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:/jpaContext.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+<!-- 	+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<display-name>Archetype Created Web Application</display-name>
 </web-app>

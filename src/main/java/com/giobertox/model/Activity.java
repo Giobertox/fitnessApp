@@ -1,5 +1,6 @@
 package com.giobertox.model;
 
+
 public class Activity {
 
 	private final long id;

@@ -2,6 +2,7 @@ package com.giobertox.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,10 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.giobertox.model.Goal;
+import com.giobertox.service.GoalService;
 
 @Controller
 @SessionAttributes("goal")
 public class GoalController {
+
+	@Autowired
+	GoalService goalService;
 
 	@RequestMapping(value = "addGoal", method = RequestMethod.GET)
 	public String addGoal(Model model) {
@@ -28,7 +33,10 @@ public class GoalController {
 		System.out.println("Goal set to minutes:" + goal.getMinutes());
 		if (result.hasErrors()) {
 			return "addGoal";
+		} else {
+			goalService.saveGoal(goal);
 		}
 		return "redirect:addMinutes.html";
+
 	}
 }

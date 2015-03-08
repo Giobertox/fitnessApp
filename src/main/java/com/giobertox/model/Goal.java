@@ -11,16 +11,20 @@ import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name = "goals")
+// optional for specifyin some attributes of the table
 public class Goal {
 
-	// Long is good for PKs : It s big, it has hashcode, it has equals method
+	// Long is good for PKs : It s big, autoboxing, it has hashcode, it has
+	// equals method
 	@Id
 	@GeneratedValue
+	// @GeneratedValue works in conjunction with id , 4 options (IDENTITY
+	// ,AUTO,SEQUENCE,TABLE)
 	private Long id;
 
 	@NotNull
 	@Range(min = 1, max = 180)
-	@Column(name = "MINUTES")
+	@Column(name = "minutes")
 	private int minutes;
 
 	public Long getId() {

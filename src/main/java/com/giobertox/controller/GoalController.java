@@ -19,7 +19,7 @@ import com.giobertox.service.GoalService;
 public class GoalController {
 
 	@Autowired
-	GoalService goalService;
+	private GoalService goalService;
 
 	@RequestMapping(value = "addGoal", method = RequestMethod.GET)
 	public String addGoal(Model model) {

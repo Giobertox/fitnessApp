@@ -10,7 +10,7 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="com.giobertox"></context:component-scan>
+	<context:component-scan base-package="com.giobertox.controller"></context:component-scan>
 
 	<!-- Enable AspectJ style of Spring AOP -->
 	<bean id="myAspectOrientedBean" class="com.giobertox.aspect.TracingAspect" />

@@ -8,16 +8,17 @@
 	<!-- Bean configuration file for settin the annotation based JPA -->
 
 	<context:annotation-config />
+	<context:component-scan base-package="com.giobertox"></context:component-scan>
 
 	<!-- This tells Spring to use Persistence BEan Annotation -->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="${hibernate.persistence_unit_name}"/>
+		<property name="persistenceUnitName" value="${hibernate.persistence_unit_name}" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="showSql"  value="${hibernate.show_sql}"></property>
+				<property name="showSql" value="${hibernate.show_sql}"></property>
 			</bean>
 		</property>
 		<property name="jpaPropertyMap">

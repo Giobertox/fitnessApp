@@ -5,13 +5,6 @@
 	version="3.0">
 	<display-name>Servlet 3.0 Web Application</display-name>
 
-	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/config/root-context.xml</param-value>
-	</context-param>
-
-
 	<!-- The front controller of this Spring Web application, responsible for handling all application requests -->
 	<servlet>
 		<servlet-name>fitTrackerServlet</servlet-name>

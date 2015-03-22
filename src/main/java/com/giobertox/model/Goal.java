@@ -1,31 +1,33 @@
 package com.giobertox.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-@Table(name = "goals")
-// optional for specifyin some attributes of the table
+// @Table(name = "goals")
 public class Goal {
 
-	// Long is good for PKs : It s big, autoboxing, it has hashcode, it has
-	// equals method
 	@Id
 	@GeneratedValue
-	// @GeneratedValue works in conjunction with id , 4 options (IDENTITY
-	// ,AUTO,SEQUENCE,TABLE)
 	private Long id;
 
 	@NotNull
 	@Range(min = 1, max = 180)
 	@Column(name = "minutes")
 	private int minutes;
+
+	@OneToMany(mappedBy = "goal", cascade = CascadeType.ALL)
+	private List<Exercise> exercises = new ArrayList<Exercise>();
 
 	public Long getId() {
 		return id;
@@ -41,6 +43,14 @@ public class Goal {
 
 	public void setMinutes(int minutes) {
 		this.minutes = minutes;
+	}
+
+	public List<Exercise> getExercises() {
+		return exercises;
+	}
+
+	public void setExercises(List<Exercise> exercises) {
+		this.exercises = exercises;
 	}
 
 }

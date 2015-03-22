@@ -34,7 +34,7 @@ public class GoalController {
 			return "addGoal";
 		} else {
 			System.out.println("Goal set to minutes:" + goal.getMinutes());
-			goalService.save(goal);
+			goal = goalService.save(goal);
 		}
 		return "redirect:addMinutes.html";
 	}

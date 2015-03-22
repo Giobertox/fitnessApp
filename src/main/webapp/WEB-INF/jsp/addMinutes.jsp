@@ -78,7 +78,7 @@
 
 	<br>
 	<spring:message code="minutes.toGo" />
-	: ${goal.minutes}
+<%-- 	: ${remainingMinutes} --%>
 	<spring:message code="minutes.minutes" />
 	.
 	<br>

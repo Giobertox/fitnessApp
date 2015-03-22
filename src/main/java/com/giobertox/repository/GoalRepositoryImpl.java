@@ -13,9 +13,10 @@ public class GoalRepositoryImpl implements GoalRepository {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Override
 	public Goal save(Goal goal) {
-		 em.persist(goal);
-		// em.flush();
+		em.persist(goal);
+		em.flush();
 		return goal;
 	}
 

@@ -25,8 +25,7 @@ public class MinutesController {
 	@RequestMapping(value = "/addMinutes", method = RequestMethod.GET)
 	public String addMinutes(Model model) { // @ModelAttribute("exercise")
 		// Exercise exercise) {
-		Exercise exercise = new Exercise();
-		model.addAttribute("exercise", exercise);
+		model.addAttribute("exercise", new Exercise());
 		return "addMinutes";
 	}
 
@@ -41,10 +40,10 @@ public class MinutesController {
 			// Goal goal = (Goal) model.asMap().get("goal");
 			exercise.setGoal(goal);
 			exerciseService.save(exercise);
+			model.addAttribute("exercise", new Exercise());
 			// int remainingMins = (goal.getMinutes() - exercise.getMinutes());
 			// goal.setMinutes(remainingMins);
-			// model.addAttribute("remainingMinutes",
-			// exerciseService.getRemainigMinutes(goal));
+			model.addAttribute("remainingMinutes", exerciseService.getRemainigMinutes(goal));
 		}
 		return "addMinutes";
 	}

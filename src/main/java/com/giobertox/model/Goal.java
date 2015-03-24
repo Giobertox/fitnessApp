@@ -18,6 +18,8 @@ import org.hibernate.validator.constraints.Range;
 // @Table(name = "goals")
 public class Goal {
 
+	public static final String FIND_GOAL_REPORTS = null;
+
 	@Id
 	@GeneratedValue
 	private Long id;

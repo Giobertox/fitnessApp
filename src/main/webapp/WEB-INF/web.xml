@@ -51,6 +51,18 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- ++++++++++++++++++To enlarge the scope of JPA Session up to the controller++++++++++++++++++++++ -->
+
+	<filter>
+		<filter-name>SpringOpenEntityManagerInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SpringOpenEntityManagerInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
 	<display-name>Archetype Created Web Application</display-name>
 </web-app>

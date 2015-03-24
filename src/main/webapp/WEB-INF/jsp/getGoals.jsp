@@ -13,7 +13,7 @@
 	<table>
 
 		<tr>
-			<th>ID</th>
+			<th>Goal ID</th>
 			<th>Minutes</th>
 		</tr>
 
@@ -27,13 +27,13 @@
 						<tr>
 							<th>Exercise ID</th>
 							<th>Exercise Minutes</th>
-							<th>Exercise Activity</th>
+							<th>Exercise Type Activity</th>
 						</tr>
 						<c:forEach items="${goal.exercises}" var="exercise">
 							<tr>
 								<td>${exercise.id}</td>
 								<td>${exercise.minutes}</td>
-								<td>${exercise.activity}</td>
+								<td>${exercise.type}</td>
 							</tr>
 						</c:forEach>
 					</table>

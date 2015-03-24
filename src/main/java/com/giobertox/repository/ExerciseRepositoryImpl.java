@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.giobertox.model.Exercise;
 
-@Repository("exeriseRepository")
+@Repository("exerciseRepository")
 public class ExerciseRepositoryImpl implements ExerciseRepository {
 
 	@PersistenceContext

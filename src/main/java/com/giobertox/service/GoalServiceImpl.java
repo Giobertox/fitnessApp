@@ -22,6 +22,7 @@ public class GoalServiceImpl implements GoalService {
 	}
 
 	@Override
+	@Transactional
 	public List<Goal> findAllGoals() {
 		return goalRepository.loadAll();
 	}

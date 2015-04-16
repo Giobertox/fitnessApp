@@ -29,11 +29,14 @@ public class MinutesController {
 		return "addMinutes";
 	}
 
+	// Using the Post Redirect Get Pattern :)
 	@RequestMapping(value = "/addMinutes", method = RequestMethod.POST)
 	public String addMinutes(Model model, @Valid @ModelAttribute("exercise") Exercise exercise,
 			BindingResult result, HttpSession session) {
 		System.out.println("result.hasErrors(): " + result.hasErrors());
-		if (!result.hasErrors()) {
+		if (result.hasErrors()) {
+			return "addMinutes";
+		} else {
 			System.out.println("exercise min: " + exercise.getMinutes());
 			System.out.println("exercise type: " + exercise.getType());
 			Goal goal = (Goal) session.getAttribute("goal");
@@ -45,6 +48,6 @@ public class MinutesController {
 			// goal.setMinutes(remainingMins);
 			model.addAttribute("remainingMinutes", exerciseService.getRemainigMinutes(goal));
 		}
-		return "addMinutes";
+		return "redirect:/addMinutes.html";
 	}
 }

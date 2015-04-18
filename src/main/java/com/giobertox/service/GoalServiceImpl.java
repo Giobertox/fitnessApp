@@ -16,6 +16,14 @@ public class GoalServiceImpl implements GoalService {
 	@Autowired
 	private GoalRepository goalRepository;
 
+	public GoalRepository getGoalRepository() {
+		return goalRepository;
+	}
+
+	public void setGoalRepository(GoalRepository goalRepository) {
+		this.goalRepository = goalRepository;
+	}
+
 	@Override
 	@Transactional
 	public Goal save(Goal goal) {

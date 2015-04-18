@@ -1,10 +1,10 @@
-package com.giobertox.service;
+package com.giobertox.repository;
 
 import java.util.List;
 
 import com.giobertox.model.Activity;
 
-public interface ActivityService {
+public interface ActivitiesRepository {
 
 	List<Activity> findAllActivities();
 

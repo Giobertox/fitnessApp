@@ -19,6 +19,7 @@ import org.springframework.util.CollectionUtils;
 
 import com.giobertox.model.Goal;
 import com.giobertox.repository.GoalRepository;
+import com.giobertox.service.GoalServiceImpl;
 
 /**
  * @author giovanni
@@ -61,7 +62,6 @@ public class GoalServiceImplTest {
 	public void test_findAllGoals_success() {
 		// Setup
 		GoalServiceImpl target = new GoalServiceImpl();
-
 		target.setGoalRepository(mockGoalRepository);
 
 		Goal goal = new Goal();

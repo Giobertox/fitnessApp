@@ -3,8 +3,11 @@ package com.giobertox.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.giobertox.model.Activity;
 
+@Repository
 public class ActivitiesRepositoryImpl implements ActivitiesRepository {
 
 	private List<Activity> activities = new ArrayList<Activity>();

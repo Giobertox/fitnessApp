@@ -18,7 +18,7 @@ public class ExerciseServiceImpl implements ExerciseService {
 	@Transactional
 	@Override
 	public void save(Exercise exercise) {
-		if (exercise != null && exercise.getGoal() != null) {// log
+		if (exercise != null && exercise.getGoal() != null) {
 			exerciseRepository.save(exercise);
 		}
 	}

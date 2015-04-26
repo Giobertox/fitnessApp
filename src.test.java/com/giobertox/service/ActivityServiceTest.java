@@ -5,6 +5,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Matchers;
 import org.mockito.Mockito;
 import org.springframework.util.Assert;
 
@@ -40,7 +41,7 @@ public class ActivityServiceTest {
 
 		Long activityId = 1L;
 		Activity activity1 = new Activity(activityId, "description");
-		Mockito.when(mockedActivitiesRepository.getActivity(Mockito.anyLong())).thenReturn(
+		Mockito.when(mockedActivitiesRepository.getActivity(Matchers.any(Long.class))).thenReturn(
 				activity1);
 
 		// Execution

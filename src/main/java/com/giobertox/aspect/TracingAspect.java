@@ -28,7 +28,6 @@ public class TracingAspect {
 	// ("execution( public List<Activity> findAllActivities())")
 	public void logEntering(JoinPoint joinPoint) {
 		// enteringCalled = true;
-		System.out.println("CIAOOO");
 		logger.trace("entering ");// +
 		// // joinPoint.getStaticPart().getSignature().toString());
 	}

@@ -19,7 +19,6 @@ import org.springframework.util.CollectionUtils;
 
 import com.giobertox.model.Goal;
 import com.giobertox.repository.GoalRepository;
-import com.giobertox.service.GoalServiceImpl;
 
 /**
  * @author giovanni
@@ -62,7 +61,10 @@ public class GoalServiceImplTest {
 	public void test_findAllGoals_success() {
 		// Setup
 		GoalServiceImpl target = new GoalServiceImpl();
-		target.setGoalRepository(mockGoalRepository);
+		target.setGoalRepository(mockGoalRepository);// is there a way to
+														// replicate the
+														// autowired in a junit
+														// test ?
 
 		Goal goal = new Goal();
 		List<Goal> goalList = new ArrayList<Goal>();

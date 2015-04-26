@@ -11,12 +11,12 @@ import com.giobertox.model.Exercise;
 public class ExerciseRepositoryImpl implements ExerciseRepository {
 
 	@PersistenceContext
-	private EntityManager em;
+	private EntityManager entityManager;
 
 	@Override
 	public void save(Exercise exercise) {
-		em.persist(exercise);
-		em.flush();
+		entityManager.persist(exercise);
+		entityManager.flush();
 	}
 
 }

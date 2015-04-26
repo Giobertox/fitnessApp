@@ -14,10 +14,6 @@ public class ActivityServiceImpl implements ActivityService {
 	@Autowired
 	ActivitiesRepository activitiesRepository;
 
-	public ActivitiesRepository getActivitiesRepository() {
-		return activitiesRepository;
-	}
-
 	public void setActivitiesRepository(ActivitiesRepository activitiesRepository) {
 		this.activitiesRepository = activitiesRepository;
 	}

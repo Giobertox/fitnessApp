@@ -16,7 +16,7 @@
 					function() {
 						$
 								.getJSON(
-										'<spring:url value="http://localhost:8080/fitnessApp/activities/"/>',
+										'<spring:url value="http://localhost:8080/fitnessApp/rest/activities/"/>',
 										{
 											ajax : 'true'
 										},

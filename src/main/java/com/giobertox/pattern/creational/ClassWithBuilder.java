@@ -32,9 +32,6 @@ public class ClassWithBuilder {
 
 		public ClassWithBuilder build() {
 			ClassWithBuilder classWithBuilder = new ClassWithBuilder(this);
-			if (classWithBuilder.getMeat().equals("horse")) {
-				throw new IllegalStateException("Not allowed in here"); // thread-safe
-			}
 			assert classWithBuilder.isConsistent();
 			return classWithBuilder;
 		}

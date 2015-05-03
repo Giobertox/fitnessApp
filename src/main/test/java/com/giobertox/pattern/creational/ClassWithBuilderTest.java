@@ -35,10 +35,12 @@ public class ClassWithBuilderTest {
 
 		// Verification
 		Assert.assertEquals(BREAD, target.getBread());
+		Assert.assertEquals(null, target.getMeat());
+		Assert.assertEquals(null, target.getSauce());
 	}
 
 	@Test
-	public void test_AllFieldConstructor_success() {
+	public void test_allFieldConstructor_success() {
 		// Setup
 		ClassWithBuilder target;
 		Builder builder = new ClassWithBuilder.Builder(BREAD).meat(MEAT).sauce(SAUCE);

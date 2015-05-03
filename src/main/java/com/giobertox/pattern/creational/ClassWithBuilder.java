@@ -1,9 +1,11 @@
 package com.giobertox.pattern.creational;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class ClassWithBuilder {
-	private String bread;
-	private String meat;
-	private String sauce;
+	private final String bread;
+	private final String meat;
+	private final String sauce;
 
 	public ClassWithBuilder(Builder builder) {
 		bread = builder.getBread();
@@ -24,29 +26,21 @@ public class ClassWithBuilder {
 	}
 
 	public static class Builder {
-		private String bread;
-		private String meat;
-		private String sauce;
+		private final String bread; // mandatory
+		private String meat; // optional
+		private String sauce; // optional
 
 		public ClassWithBuilder build() {
-			return new ClassWithBuilder(this);
+			ClassWithBuilder classWithBuilder = new ClassWithBuilder(this);
+			if (classWithBuilder.getMeat().equals("horse")) {
+				throw new IllegalStateException("Not allowed in here"); // thread-safe
+			}
+			assert classWithBuilder.isConsistent();
+			return classWithBuilder;
 		}
 
 		public Builder(String bread) {
 			this.bread = bread;
-		}
-
-		public String getBread() {
-			return bread;
-		}
-
-		public Builder bread(String bread) {
-			this.bread = bread;
-			return this;
-		}
-
-		public String getMeat() {
-			return meat;
 		}
 
 		public Builder meat(String meat) {
@@ -54,14 +48,25 @@ public class ClassWithBuilder {
 			return this;
 		}
 
-		public String getSauce() {
-			return sauce;
-		}
-
 		public Builder sauce(String sauce) {
 			this.sauce = sauce;
 			return this;
 		}
+
+		public String getMeat() {
+			return meat;
+		}
+
+		public String getBread() {
+			return bread;
+		}
+
+		public String getSauce() {
+			return sauce;
+		}
 	}
 
+	public boolean isConsistent() {
+		return StringUtils.isNotEmpty(this.getBread());
+	}
 }

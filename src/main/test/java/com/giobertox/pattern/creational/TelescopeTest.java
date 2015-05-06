@@ -18,7 +18,6 @@ public class TelescopeTest {
 	private static final String SAUCE = "sauce";
 	private static final String MEAT = "meat";
 	private static final String BREAD = "bread";
-	private Telescope underTest;
 
 	/**
 	 * @throws java.lang.Exception

@@ -25,7 +25,7 @@ public class ActivityServiceTest {
 	}
 
 	@Before
-	public void setUp() throws Exception 
+	public void setUp() throws Exception {
 		mockedActivitiesRepository = Mockito.mock(ActivitiesRepository.class);
 	}
 

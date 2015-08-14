@@ -36,21 +36,19 @@ public class ActivityServiceTest {
 	@Test
 	public void test_getActivity_success() {
 		// Setup
-		ActivityServiceImpl target = new ActivityServiceImpl();
+		final ActivityServiceImpl target = new ActivityServiceImpl();
 		target.setActivitiesRepository(mockedActivitiesRepository);
 
-		Long activityId = 1L;
-		Activity activity1 = new Activity(activityId, "description");
-		Mockito.when(mockedActivitiesRepository.getActivity(Matchers.any(Long.class))).thenReturn(
-				activity1);
+		final Long activityId = 1L;
+		final Activity activity1 = new Activity(activityId, "description");
+		Mockito.when(mockedActivitiesRepository.getActivity(Matchers.any(Long.class))).thenReturn(activity1);
 
 		// Execution
-		Activity result = target.getActivity(activityId);
+		final Activity result = target.getActivity(activityId);
 		// Verification
 		Mockito.verify(mockedActivitiesRepository, Mockito.times(1)).getActivity(Mockito.anyLong());
 
 		Assert.notNull(result, "result should not be null");
-		Assert.isTrue((result.equals(activity1)),
-				"result should be the same as the one set up in the test");
+		Assert.isTrue((result.equals(activity1)), "result should be the same as the one set up in the test");
 	}
 }
